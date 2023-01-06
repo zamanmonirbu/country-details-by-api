@@ -23,9 +23,26 @@ fetch('https://restcountries.com/v2/all')
     }
 
            const showDetails=name=>{
-            const url= `https://restcountries.com/rest/v2/name/${name}`
-            fetch('res=>res.json()')
-            .then(data=>console.log(data));
+            const url= `https://restcountries.com/v2/name/${name}`
+            fetch(url)
+            .then(res=>res.json())
+            .then(some=>information(some[0]));
+           }
+           
+           const information=clicked=>{
+            const details=document.getElementById('countryDetails');
+            //console.log(clicked.currencies[0].name);
+
+            details.innerHTML=`<h1>${clicked.name}</h1>
+                                <img src="${clicked.flag}">
+            `;
+            // details.innerHTML=countryOther;
+
+            // console.log(clicked.flags.png);
+
+            
+            
+
            }
 
 
